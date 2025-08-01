@@ -2,22 +2,35 @@ using UnityEngine;
 
 public class InvisibleBlocks : MonoBehaviour
 {
-    [SerializeField] private GameObject platformVisual; // The actual platform (e.g., a sprite or tilemap)
+    [SerializeField] private SpriteRenderer invisibleBlock;
+    private void Start()
+    {
+        if (invisibleBlock != null)
+        {
+            SetAlpha(0f); 
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && invisibleBlock != null)
         {
-            if (platformVisual != null)
-                platformVisual.SetActive(true);
+            SetAlpha(1f); 
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && invisibleBlock != null)
         {
-            if (platformVisual != null)
-                platformVisual.SetActive(false);
+            SetAlpha(0f); 
         }
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        Color color = invisibleBlock.color;
+        color.a = alpha;
+        invisibleBlock.color = color;
     }
 }
