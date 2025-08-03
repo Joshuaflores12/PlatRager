@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 6253490844053584902}
   - component: {fileID: 815377026005263359}
   m_Layer: 0
-  m_Name: Coin Trap 2
+  m_Name: Cannon Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

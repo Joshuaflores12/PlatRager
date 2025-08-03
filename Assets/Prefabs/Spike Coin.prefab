@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 1277416479001792834}
   - component: {fileID: 1972865360664843846}
   m_Layer: 0
-  m_Name: Coin Trap
+  m_Name: Spike Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
