@@ -3,13 +3,20 @@ using System.Collections;
 
 public class FolderPlatform : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float minMoveTime;
-    [SerializeField] private float maxMoveTime;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float moveDistance = 5f; // The fixed distance it should travel before turning around
 
     private bool playerOnPlatform = false;
     private int direction = 1;
     private Coroutine moveRoutine;
+    private Vector3 startPos;
+    private Vector3 currentTarget;
+
+    private void Start()
+    {
+        startPos = transform.position;
+        currentTarget = startPos + Vector3.right * moveDistance;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,10 +24,8 @@ public class FolderPlatform : MonoBehaviour
         {
             playerOnPlatform = true;
 
-            direction = Random.value > 0.5f ? 1 : -1;
-
             if (moveRoutine == null)
-                moveRoutine = StartCoroutine(MoveAndSwitchDirection());
+                moveRoutine = StartCoroutine(MoveToDistanceAndBack());
         }
     }
 
@@ -29,6 +34,7 @@ public class FolderPlatform : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             playerOnPlatform = false;
+
             if (moveRoutine != null)
             {
                 StopCoroutine(moveRoutine);
@@ -37,17 +43,19 @@ public class FolderPlatform : MonoBehaviour
         }
     }
 
-    private IEnumerator MoveAndSwitchDirection()
+    private IEnumerator MoveToDistanceAndBack()
     {
         while (playerOnPlatform)
         {
-            float moveDuration = Random.Range(minMoveTime, maxMoveTime);
-            float timer = 0f;
+            Vector3 start = transform.position;
+            Vector3 end = start + Vector3.right * direction * moveDistance;
+            float traveled = 0f;
 
-            while (timer < moveDuration && playerOnPlatform)
+            while (traveled < moveDistance && playerOnPlatform)
             {
-                transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
-                timer += Time.deltaTime;
+                float step = speed * Time.deltaTime;
+                transform.Translate(Vector2.right * direction * step);
+                traveled += step;
                 yield return null;
             }
 
@@ -55,3 +63,4 @@ public class FolderPlatform : MonoBehaviour
         }
     }
 }
+
