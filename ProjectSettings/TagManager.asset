@@ -8,6 +8,8 @@ TagManager:
   - Trap
   - Checkpoint
   - Coin
+  - Vine
+  - Rope
   layers:
   - Default
   - TransparentFX
