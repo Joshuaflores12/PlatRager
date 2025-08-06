@@ -1,16 +1,45 @@
 using UnityEngine;
-
+using TMPro;
+using System.Collections;
 public class FakeShortcutBombActivation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject Bomb;
+    [SerializeField] private float timerDelay;
+    [SerializeField] private TextMeshProUGUI bombTimer;
+    [SerializeField] private bool hasActivated = false;
+    [SerializeField] private SpriteRenderer fakeShortcut;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (!hasActivated && other.CompareTag("Player")) 
+        {
+            hasActivated = true;
+            StartCoroutine(ActivateBomb());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator ActivateBomb() 
     {
-        
+        bombTimer.gameObject.SetActive(true);
+        float timeLeft = timerDelay;
+        while (timeLeft > 0) 
+        {
+            bombTimer.text = Mathf.Ceil(timeLeft).ToString();
+            yield return new WaitForSeconds(1f);
+            timeLeft -= 1;
+            
+        }
+
+        bombTimer.text = "";
+        bombTimer.gameObject.SetActive(false);
+
+        if(fakeShortcut != null) 
+        {
+            Color color = fakeShortcut.color;
+            color.a = 0f; 
+            fakeShortcut.color = color;
+        }
+
+        Bomb.SetActive(true);
     }
 }

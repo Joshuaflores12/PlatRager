@@ -6,7 +6,7 @@ public class ClosePopUp : MonoBehaviour
     [SerializeField] private GameObject popUp;
     [SerializeField] private Transform virusSpawn;
 
-    public void Close() 
+    public void Close()
     {
         popUp.SetActive(false);
         Instantiate(virusPrefab, virusSpawn.position,Quaternion.identity);
