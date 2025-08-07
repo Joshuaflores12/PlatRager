@@ -9896,6 +9896,7 @@ GameObject:
   - component: {fileID: 1670801950}
   - component: {fileID: 1670801951}
   - component: {fileID: 1670801952}
+  - component: {fileID: 1670801953}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9953,8 +9954,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: 0.07230864}
+  m_Size: {x: 1, y: 1.8553829}
   m_Direction: 0
 --- !u!212 &1670801949
 SpriteRenderer:
@@ -10000,12 +10001,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1176329006, guid: 7a767567dc24744b1b501d77401df87c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.9375, y: 1.84375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -10059,6 +10060,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  animatorController: {fileID: 0}
 --- !u!114 &1670801952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10074,6 +10076,28 @@ MonoBehaviour:
   respawnSpawnPoint: {fileID: 281745850}
   rb: {fileID: 1670801950}
   deathDelay: 0.5
+--- !u!95 &1670801953
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670801946}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67158deeb6512415e94618ae1a899551, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1680554535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9066688766058708855, guid: d023dfea6406a21479fdaa113859c979, type: 3}

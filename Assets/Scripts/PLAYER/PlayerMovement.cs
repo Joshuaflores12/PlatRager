@@ -9,8 +9,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Animator animatorController;
 
     private bool isGroundedNow;
+
+    void Start(){
+        animatorController = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -28,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Flip();
+        bool isMoving = horizontal != 0;
+
+        animatorController.SetBool("isWalking", isMoving);
     }
 
     void FixedUpdate()
@@ -42,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
+            
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
