@@ -11005,6 +11005,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5543686088992363825, guid: a5da32e0cf5f84d43b4bea6a80f15346, type: 3}
+      propertyPath: jumpForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5956269440466889896, guid: a5da32e0cf5f84d43b4bea6a80f15346, type: 3}
       propertyPath: m_Name
       value: Delayed Jump Pad
