@@ -18,6 +18,7 @@ public class FakeExitTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Time.timeScale = 0f;
         if (hasTriggered) return;
 
         if (other.CompareTag("Player"))
