@@ -10,6 +10,8 @@ TagManager:
   - Coin
   - Vine
   - Rope
+  - SpawnPoint
+  - Audio
   layers:
   - Default
   - TransparentFX

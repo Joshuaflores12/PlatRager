@@ -3,11 +3,13 @@ using UnityEngine;
 public class InvisibleBlocks : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer invisibleBlock;
+    [SerializeField] private float revealDelay = 1f; // Delay before showing the block
+
     private void Start()
     {
         if (invisibleBlock != null)
         {
-            SetAlpha(0f); 
+            SetAlpha(0f);
         }
     }
 
@@ -15,7 +17,8 @@ public class InvisibleBlocks : MonoBehaviour
     {
         if (other.CompareTag("Player") && invisibleBlock != null)
         {
-            SetAlpha(1f); 
+            StopAllCoroutines(); // Stop previous fade-outs if player re-enters
+            StartCoroutine(RevealAfterDelay());
         }
     }
 
@@ -23,8 +26,15 @@ public class InvisibleBlocks : MonoBehaviour
     {
         if (other.CompareTag("Player") && invisibleBlock != null)
         {
-            SetAlpha(0f); 
+            StopAllCoroutines(); // Stop reveal coroutine if player leaves
+            SetAlpha(0f); // Instantly hide on exit (can be changed to fade if desired)
         }
+    }
+
+    private System.Collections.IEnumerator RevealAfterDelay()
+    {
+        yield return new WaitForSeconds(revealDelay);
+        SetAlpha(1f);
     }
 
     private void SetAlpha(float alpha)
@@ -34,3 +44,4 @@ public class InvisibleBlocks : MonoBehaviour
         invisibleBlock.color = color;
     }
 }
+

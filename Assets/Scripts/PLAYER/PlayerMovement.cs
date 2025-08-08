@@ -10,9 +10,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animatorController;
+    BackgroundMusic backgroundMusic;
 
     private bool isGroundedNow;
 
+    void Awake()
+    {
+       backgroundMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<BackgroundMusic>();
+    }
     void Start(){
         animatorController = GetComponent<Animator>();
     }
@@ -25,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGroundedNow)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
+            backgroundMusic.PlaySFX(backgroundMusic.jump);
+
         }
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)

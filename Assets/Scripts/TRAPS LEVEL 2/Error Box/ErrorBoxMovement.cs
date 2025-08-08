@@ -13,13 +13,19 @@ public class ErrorBoxMovement : MonoBehaviour, IPointerEnterHandler
     [SerializeField] private float timer = 5f;
     [SerializeField] private bool hasClicked = false;
     [SerializeField] private TextMeshProUGUI errorTimer;
+    private PlayerColl playerScript;
 
     private void Awake()
     {
         buttonRectTransform = GetComponent<RectTransform>();
+        
     }
 
-
+    void Start()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerColl>();
+    }
     private void Update()
     {
         if (hasClicked) return;
@@ -46,7 +52,7 @@ public class ErrorBoxMovement : MonoBehaviour, IPointerEnterHandler
     private void failedClickedX() 
     {
         errorBoxUI.SetActive(false);
-        Instantiate(errorBoxBombPrefab, bombSpawnPoint != null ? bombSpawnPoint.position : Vector3.zero, Quaternion.identity);
+        playerScript.Death();
     }
 
     public void closeError() 

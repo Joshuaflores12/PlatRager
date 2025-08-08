@@ -88,8 +88,8 @@ MonoBehaviour:
   - {fileID: 6063758677096482244}
   - {fileID: 3078574385937384161}
   numberOfEnemies: 2
-  fadeSpeed: 1
-  delayBeforeFadeout: 1
+  fadeSpeed: 0.5
+  delayBeforeFadeout: 0.5
   hasTriggered: 0
 --- !u!61 &6085829294129782293
 BoxCollider2D:
@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 8347527353378623112}
   - component: {fileID: 7555176564741562890}
   - component: {fileID: 5607163072485075751}
-  - component: {fileID: 2187602206659091438}
   m_Layer: 0
   m_Name: EnemyDropSpawn
   m_TagString: Untagged
@@ -197,7 +196,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.7, y: 14.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2968245, y: 0.2968245, z: 0.2968245}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 687508153387381590}
@@ -246,7 +245,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 3119020103343890530, guid: b862d685453601a4aa2d1150288c27f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,43 +283,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &2187602206659091438
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280314652266812826}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
 --- !u!1 &5749788826224481203
 GameObject:
   m_ObjectHideFlags: 0
