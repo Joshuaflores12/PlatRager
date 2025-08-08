@@ -3,7 +3,8 @@ using UnityEngine;
 public class BackgroundMusic : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private BackgroundMusic backgroundMusic;
+    public static BackgroundMusic Instance { get; private set; }
+
     [SerializeField] AudioSource SFXSource;
 
     public AudioClip jump;
@@ -22,14 +23,14 @@ public class BackgroundMusic : MonoBehaviour
 
     private void Awake()
     {
-        if(backgroundMusic == null)
+        if (Instance == null)
         {
-            backgroundMusic = this;
-            DontDestroyOnLoad(backgroundMusic);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        else
+        else if (Instance != this)
         {
+            // If a duplicate is created, destroy it
             Destroy(gameObject);
         }
     }

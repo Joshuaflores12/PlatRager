@@ -8753,6 +8753,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 168640334360574244, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 504433601699778779, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
       propertyPath: m_Name
       value: Blue Screen Fake
@@ -8764,6 +8768,22 @@ PrefabInstance:
     - target: {fileID: 949533845828051160, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265840374766203858, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3782309081217736034, guid: c71e5943d5a0f4947b7bf126832b57cb, type: 3}
+    - target: {fileID: 3265840374766203858, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265840374766203858, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265840374766203858, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4309795930519730167, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8803,6 +8823,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309795930519730167, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100498324098877167, guid: b7c07f516bf08df4bb7c56381b0cf099, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -15,14 +15,16 @@ public class FakeExitTrigger : MonoBehaviour
     [SerializeField] private float fadeSpeed = 1f;
     [SerializeField] private float delayBeforeFadeOut = 1f;
     [SerializeField] private bool hasTriggered = false;
+    public GameObject player;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Time.timeScale = 0f;
+        
         if (hasTriggered) return;
 
         if (other.CompareTag("Player"))
         {
+            player.SetActive(false);
             hasTriggered = true;
             StartCoroutine(ShutdownSequence());
         }
